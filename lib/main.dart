@@ -134,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
       actions: actions,
     );
 
-    final availabeHeight = mediaQuery.size.height -
+    final availableHeight = mediaQuery.size.height -
         appBar.preferredSize.height -
         mediaQuery.padding.top;
 
@@ -143,30 +143,14 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // if (isLandscape)
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     const Text('Exibir Gráfico'),
-            //     Switch.adaptive(
-            //       activeColor: Theme.of(context).colorScheme.secondary,
-            //       value: _showChart,
-            //       onChanged: (value) {
-            //         setState(() {
-            //           _showChart = value;
-            //         });
-            //       },
-            //     ),
-            //   ],
-            // ),
             if (_showChart || !isLandscape)
               SizedBox(
-                height: availabeHeight * (isLandscape ? 0.8 : 0.3),
+                height: availableHeight * (isLandscape ? 0.8 : 0.3),
                 child: Chart(_recentTransactions),
               ),
             if (!_showChart || !isLandscape)
               SizedBox(
-                height: availabeHeight * (isLandscape ? 1 : 0.7),
+                height: availableHeight * (isLandscape ? 1 : 0.7),
                 child: TransactionList(_transactions, _removeTransaction),
               ),
           ],
